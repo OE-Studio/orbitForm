@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1(class="title")= title
+  div(class="container")
+    table
+        thead
+            th Full Name
+            th Email
+        tbody
+        - each item in signeeList 
+          tr
+            td= item.fullName 
+            td= item.email

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SanityHub Health</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+        * {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+        }
+
+        .body {
+            background-color: #D4E3FF;
+            padding: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .header {
+            background-color: #D53EFF;
+            height: 90px;
+            border-radius: 15px 15px 0px 0px;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+
+        }
+
+        .main {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 32px;
+        }
+
+        .footer {
+            background-color: #F4F7FF;
+            border-radius: 0px 0px 15px 15px;
+            padding: 32px;
+        }
+
+        .icon {
+            display: inline-block;
+            border-radius: 50%;
+            margin: 0 auto;
+            text-align: center;
+            width: 86px;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FBECFF;
+        }
+
+
+        .bodyText {
+            font-size: 14px;
+            line-height: 24px;
+            color: rgba(51, 51, 51, 1);
+            text-align: center;
+            padding: 12px 0 16px;
+        }
+
+        .bodyText2 {
+            font-size: 14px;
+            line-height: 24px;
+            color: #868686;
+            text-align: center;
+            padding: 12px 0 16px;
+            background-color: #F4F7FF;
+            border-radius: 10px;
+        }
+
+        .footerText {
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .otpContainer {
+            background-color: #E9F1FF;
+            font-family: 'IBM Plex Mono', monospace;
+            padding: 20px;
+            font-size: 36px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .hyperLink {
+            color: #6875DE;
+            display: inline;
+            text-decoration: underline;
+        }
+
+        .footerIcon {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 24px;
+            align-items: center;
+        }
+
+        .socialMedia {
+            display: inline-flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .mainLogo {
+            display: inline-block;
+            margin: 24px 32px;
+            position: relative;
+            z-index: 50;
+        }
+
+        .element {
+            position: absolute;
+            top: 0;
+            transform: translateY(-50%);
+            right: -25%
+        }
+
+        .actnBtn {
+            background-color: #2871FF;
+            border-radius: 200px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            margin-top: 16px;
+            font-size: 16px;
+            display: block;
+            width: 240px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 24px auto;
+        }
+
+
+        @media only screen and (min-width: 768px) {
+            .bodyText {
+                font-size: 16px;
+            }
+
+            .bodyText2 {
+                padding: 30px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="body">
+        <div class="header">
+            <img src="https://api.sanityhub.health/images/logoHeader.png" alt="" class="mainLogo">
+            <img src="https://api.sanityhub.health/images/element.png" alt="" class="element">
+        </div>
+        <div class="main">
+            <div class="icon">
+                <img src="https://api.sanityhub.health/images/calendar.png" alt="" style="height: 42px">
+            </div>
+
+            <h3 style="text-align: center; margin-top:12px; font-weight:500">New appointment request</h3>
+
+            <p class="bodyText" style="font-weight:300">
+                You have a pending request for an appointment by a client, please go to your dashboard to approve and
+                for more details.
+            </p>
+
+            <table style="display:block; width:auto; margin:12px auto; border:1px solid #cecece; border-radius: 8px;">
+                <tbody>
+                    <tr style="border:1px solid #cecece; font-size: 10px;">
+                        <td style="border:1px solid #cecece; color:#A5B2C0; padding:12px;">Topic</td>
+                        <td style="border:1px solid #cecece; color:#71879C; padding:12px">{{appointment topic}}</td>
+                    </tr>
+                    <tr style="border:1px solid #cecece; font-size: 10px;">
+                        <td style="border:1px solid #cecece; color:#A5B2C0; padding:12px;">Client name</td>
+                        <td style="border:1px solid #cecece; color:#71879C; padding:12px">{{client}}</td>
+                    </tr>
+                    <tr style="border:1px solid #cecece; font-size: 10px;">
+                        <td style="border:1px solid #cecece; color:#A5B2C0; padding:12px;">Date</td>
+                        <td style="border:1px solid #cecece; color:#71879C; padding:12px">{{appointment date}}</td>
+                    </tr>
+                    <tr style="border:1px solid #cecece; font-size: 10px;">
+                        <td style="border:1px solid #cecece; color:#A5B2C0; padding:12px;">Time</td>
+                        <td style="border:1px solid #cecece; color:#71879C; padding:12px">{{appointment time}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="https://counselor.sanityhub.health" class="actnBtn">Respond on dashboard</a>
+
+
+        </div>
+        <div class="footer">
+            <p class="footerText">For errors, enquiries and complants reach us at <span><a href=""
+                        class="hyperLink">hello@sanityhub.health</a></span>
+            </p>
+            <div class="footerIcon">
+                <img src="https://api.sanityhub.health/images/Logo.png" alt="">
+                <div class="socialMedia">
+                    <a href="https://twitter.com/Sanity_hub">
+                        <img src="https://api.sanityhub.health/images/twitter.png" alt="twitter logo">
+                    </a>
+                    <a href="https://www.instagram.com/sanityhub_/">
+                        <img src="https://api.sanityhub.health/images/instagram.png" alt="instagram logo">
+                    </a>
+                    <a href="https://www.linkedin.com/company/sanityhub/">
+                        <img src="https://api.sanityhub.health/images/linkedin.png" alt="linkedin logo">
+                    </a>
+                    <a href="">
+                        <img src="https://api.sanityhub.health/images/medium.png" alt="medium logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

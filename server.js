@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require("dotenv");
 const cors = require('cors');
+const path = require('path');  
 
 
 dotenv.config();
@@ -22,6 +23,15 @@ app.use(express.urlencoded({
 // parse application/json
 // app.use(bodyParser.json())
 app.use(express.json())
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+var public = path.join(__dirname, 'public');
+
+app.use('/', express.static(public));
 
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
