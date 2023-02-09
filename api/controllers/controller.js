@@ -39,7 +39,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     Signee.find()
         .then(signees => {
-            res.status(201).render('List',{title:"Orbit FInance email List", signeeList:signees})
+            res.status(201).render('list',{title:"Orbit FInance email List", signeeList:signees})
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while retrieving signees."
