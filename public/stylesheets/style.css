@@ -11,6 +11,8 @@
 .title{
   font-size: 30px;
   margin: 25px;
+  display: flex;
+  justify-content: center;
 }
 
  a {
@@ -18,8 +20,7 @@
 }
 
 .csv{
-  margin-left: 40%;
-  /* padding-bottom: 20px; */
+  margin-left: 60%;
 }
 
 .container {
