@@ -1,6 +1,7 @@
 const express = require('express');
 const Signee = require('../model/model.js');
 const path = require('path');
+const csv = require('csv-express');
 
 const app = express()
 app.use(express.static(path.join(__dirname, 'public')));
@@ -46,6 +47,24 @@ exports.findAll = (req, res) => {
             });
         });
 };
+
+exports.getcsv = (req,res, next) => {
+    let filename = "emails.csv";
+
+    let dataArray;
+
+    Signee.find().lean().exec()
+        .then((signees) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/csv');
+            res.setHeader("Content-Disposition", 'attachment; filename=' +filename);
+            res.csv(signees, true);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving signees."
+            });
+        })
+}
 
 // Find a single signee with an ID
 exports.findOne = (req, res) => {

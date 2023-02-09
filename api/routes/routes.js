@@ -1,21 +1,14 @@
  module.exports = (app) => {
     const signees = require('../controllers/controller.js');
 
-    // Create a new Hymns
+    // Create a new signee
     app.post('/signup', signees.create);
 
-    // Retrieve all Hymns
+    // Retrieve all signees
     app.get('/view', signees.findAll);
 
-    // Retrieve a single Hymn with hymnId
+    // Retrieve a single signee with signee
     app.get('/signee/:signeeID', signees.findOne);
 
-    // // Update a Hymn with hymnId
-    // app.put('/hymns/:hymnId', hymns.update);
-
-    // // Delete a Hymn with hymnId
-    // app.delete('/hymns/:hymnId', hymns.delete);
-
-    // // Search a Hymn with an hymnId
-    // //app.get('/hymns', hymns.search);
+    app.get('/exportcsv', signees.getcsv)
 }

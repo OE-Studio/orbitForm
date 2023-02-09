@@ -9,12 +9,17 @@
 }
 
 .title{
-  font-size: 50px;
+  font-size: 30px;
   margin: 25px;
 }
 
  a {
 	 color: #00b7ff;
+}
+
+.csv{
+  margin-left: 40%;
+  /* padding-bottom: 20px; */
 }
 
 .container {
